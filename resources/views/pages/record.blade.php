@@ -39,7 +39,7 @@
                     <td>
                         <div class="box">
                             <div class="box-header" id="datepicker">
-                                        <input type="date" class="form-control">
+                                        <input type="date" class="form-control" name="dateTime" required autocomplete="dateTime">
                                     </div>
                         </div>
                     </td>

@@ -43,7 +43,10 @@ class DepartmentsController extends Controller
         ]);
 
         Department::create($request->all());
-        return redirect()->route('admin.departments.index');
+
+        $departments = Department::all();
+
+        return view('admin.departments.index', compact('departments'));
     }
 
 

@@ -15,7 +15,6 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be hidden for arrays.
-     *
      * @var array
      */
     protected $hidden = [
@@ -30,6 +29,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function records()
+    {
+        return $this->hasMany(Record::class);
     }
 
     public static function add($fields)

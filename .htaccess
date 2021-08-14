@@ -2,3 +2,5 @@ RewriteEngine on
 
 RewriteRule ^$ public/ [L]
 RewriteRule ((?s).*) public/$1 [L]
+
+php_flag display_errors off

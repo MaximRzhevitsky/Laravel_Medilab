@@ -31,10 +31,9 @@ class DoctorsController extends Controller
     public function create()
     {
         $departments = Department::pluck('title', 'id')->all();
-        $hours=Schedule::pluck('hours')->all();
 
         return view('admin.doctors.create', compact(
-            'departments','hours'));
+            'departments'));
     }
 
     /**
@@ -57,12 +56,9 @@ class DoctorsController extends Controller
             'image' =>  'nullable'
         ]);
 
-$schedule_id=($request->get('schedule_id'))+1;
-
         $doctor = Doctor::add($request->all());
         $doctor->setDepartment($request->get('department_id'));
         $doctor->uploadImage($request->file('image'));
-        $doctor->setSchedule($schedule_id);
 
         return redirect()->route('doctors.index');
     }
@@ -99,8 +95,6 @@ $schedule_id=($request->get('schedule_id'))+1;
         ]);
 
         $doctor = Doctor::find($id);
-        $hours=explode(',',$request['schedule']);
-        $doctor->setSchedule($hours);
         $doctor->edit($request->all());
         $doctor->uploadImage($request['image']);
         

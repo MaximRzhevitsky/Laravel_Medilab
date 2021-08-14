@@ -225,21 +225,21 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
-          <a href="{{'/admin'}}">
+          <a href={{"/admin"}}>
             <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
           </a>
         </li>
-        <li><a href="{{'admin/doctors'}}"><i class="fa fa-sticky-note-o"></i> <span>Врачи</span></a></li>
-        <li><a href="{{'admin/departments'}}"><i class="fa fa-list-ul"></i> <span>Отделения</span></a></li>
+        <li><a href={{"/admin/doctors"}}><i class="fa fa-sticky-note-o"></i> <span>Врачи</span></a></li>
+        <li><a href={{"/admin/departments"}}><i class="fa fa-list-ul"></i> <span>Отделения</span></a></li>
         <li>
-          <a href="{{'admin/records'}}">
+          <a href={{"/admin/records"}}>
             <i class="fa fa-commenting"></i> <span>Записи ко врачам</span>
             <span class="pull-right-container">
           <small class="label pull-right bg-green">{{'2'}}</small>
         </span>
           </a>
         </li>
-        <li><a href="{{'admin/users'}}"><i class="fa fa-users"></i> <span>Пациенты</span></a></li>
+        <li><a href={{"/admin/users"}}><i class="fa fa-users"></i> <span>Пациенты</span></a></li>
 
       </ul>
     </section>

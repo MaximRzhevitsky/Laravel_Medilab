@@ -14,7 +14,7 @@
                             <div class="form-group row">
                                 <label for="sur_name" class="col-md-4 col-form-label text-md-right">{{ __('Sur_Name') }}</label>
                                 <div class="col-md-6">
-                                    <input id="sur_name" type="text" class="form-control" name="sur_name" autofocus>
+                                    <input id="sur_name" type="text" class="form-control" name="sur_name" value="{{ old('sur_name') }}" required autocomplete="sur_name">
                                 </div>
                             </div>
                             </br>
@@ -23,7 +23,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" >
+                                    <input id="name" type="text" class="form-control" name="name" required autocomplete="name">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -36,7 +36,7 @@
                             <div class="form-group row">
                                 <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last_Name') }}</label>
                                 <div class="col-md-6">
-                                    <input id="last_name" type="text" class="form-control" name="last_name">
+                                    <input id="last_name" type="text" class="form-control" name="last_name" required autocomplete="last_name">
                                 </div>
                             </div>
                             </br>
@@ -44,7 +44,7 @@
                             <div class="form-group row">
                                 <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
                                 <div class="col-md-6">
-                                    <input id="phone" type="text" class="form-control" name="phone">
+                                    <input id="phone" type="text" class="form-control" name="phone" required autocomplete="phone">
                                 </div>
                             </div>
                             </br>

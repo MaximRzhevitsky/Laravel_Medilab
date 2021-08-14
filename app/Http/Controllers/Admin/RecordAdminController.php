@@ -15,7 +15,7 @@ class RecordAdminController extends Controller
     /**
      * Display a listing of the record.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View'
      */
     public function index()
     {
@@ -27,14 +27,19 @@ class RecordAdminController extends Controller
      * Store a newly created record in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
  public function store(Request $request)
 {
     if(Gate::denies('update-record')){
         return redirect()->back()->with(['message'=>'У Вас нет прав на эту операцию']);
     }
-    Record::add($request->all());
+
+dd($request);
+
+    $record = Record::find($id);
+    $record->edit($request->all());
+
     return Redirect::back();
     }
 
@@ -42,16 +47,17 @@ class RecordAdminController extends Controller
      * Show the form for editing the record.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View'
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         $record = Record::find($id);
         $doctor=Doctor::find($record->doctor_id)->getDoctor($record->doctor_id);
         $user=User::find($record->user_id)->getUser($record->user_id);
 
         return view('admin.records.edit', compact(
-            'doctor', 'user','record'));
+            'doctor', 'user','record','id'));
+
     }
 
 
@@ -59,7 +65,7 @@ class RecordAdminController extends Controller
      * Remove the record from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {

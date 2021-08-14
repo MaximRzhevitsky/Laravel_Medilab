@@ -85,12 +85,6 @@
                      placeholder="" value="{{$doctor->email}}" name="email">
             </div>
 
-              <div class="form-group">
-                  <label for="schedule">Расписание</label>
-                  <input type="text" class="form-control" id="schedule"
-                         placeholder="" value="{{$doctor->getSchedule($doctor->id)}}" name="schedule">
-              </div>
-
         </div>
       </div>
         <!-- /.box-body -->

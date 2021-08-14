@@ -54,11 +54,7 @@
 
             <div class="form-group">
               <label>Отделение</label>
-              {{Form::select('department_id',
-              	$departments,
-              	null,
-              	['class' => 'form-control select2'])
-              }}
+              {{Form::select('department_id',$departments,null,['class' => 'form-control select2'])}}
             </div>
 
             <div class="form-group">
@@ -76,22 +72,11 @@
               <input type="text" class="form-control" id="email" placeholder="" name="email" value="{{old('email')}}">
             </div>
 
-
-            <div class="form-group">
-              <label>Часы приема</label>
-              {{Form::select('schedule_id',
-              	$hours,
-              	null,
-              	['class' => 'form-control select2'])
-              }}
-            </div>
-
           </div>
         </div>
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-default">Назад</button>
           <button class="btn btn-success pull-right">Добавить</button>
         </div>
 

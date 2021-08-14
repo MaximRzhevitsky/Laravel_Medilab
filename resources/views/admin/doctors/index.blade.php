@@ -56,7 +56,6 @@
                   <th>Фото</th>
                   <th>Телефон</th>
                   <th>Почта</th>
-                  <th>Часы приема</th>
                   <th>Редактировать</th>
                   <th>Удалить</th>
                 </tr>
@@ -70,14 +69,10 @@
                   <td>{{$doctor->room}}</td>
                   <td>{{$doctor->getDepartmenttitle()}}</td>
                   <td><img src="{{$doctor->getImage()}}" alt="" width="100"></td>
-
                   <td>{{$doctor->phone}}</td>
                   <td>{{$doctor->email}}</td>
-                  <td>{{$doctor->getSchedule($doctor->id)}}</td>
 
-                  <td>
-                  <a href="{{route('doctors.edit', $doctor->id)}}" class="fa fa-pencil"></a>
-                  </td>
+                  <td><a href="{{route('doctors.edit', $doctor->id)}}" class="fa fa-pencil"></a></td>
 
                   <td>
                   {{Form::open(['route'=>['doctors.destroy', $doctor->id], 'method'=>'delete'])}}

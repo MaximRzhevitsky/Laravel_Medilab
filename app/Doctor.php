@@ -5,13 +5,12 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Facades\Auth;
 
 class Doctor extends Model
 {
 
-	protected $fillable = ['id','name','sur_name','last_name','specific','room','phone','image','department_id','email','photo','schedule_id'];
+	protected $fillable = ['id','name','sur_name','last_name','specific','room','phone','image','department_id','email','photo'];
 
     public function department()
     {
@@ -24,10 +23,9 @@ class Doctor extends Model
         return $this->belongsToMany(User::class,'records','doctor_id','user_id');
     }
 
-
-    public function schedule()
+    public function records()
     {
-        return $this->belongsTo(Schedule::class);
+        return $this->hasMany(Record::class);
     }
 
 
@@ -112,20 +110,6 @@ return (!$this->users->isEmpty()) ? implode(',',$testArray) : 'Нет пацие
     {
         $doctor = Doctor::find($id)->only(['sur_name','name','last_name']);
         return implode(' ', $doctor);
-    }
-
-
-    public function getSchedule($id)
-    {
-        return $this->schedule()->pluck('hours');
-    }
-
-    public function setSchedule($id){
-        $schedule=Schedule::find($id)->hours;
-        $schedule=explode(',',$schedule);
-
-        $this->fill($schedule);
-        $this->save();
     }
 
 

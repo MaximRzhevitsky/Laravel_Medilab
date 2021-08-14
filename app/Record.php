@@ -10,7 +10,7 @@ class Record extends Model
 
            public function getUser($id)
            {
-           $patient = User::find($id)->only(['sur_name','name','last_name']);
+               $patient = User::find($id)->only(['sur_name','name','last_name']);
            return implode(' ', $patient);
            }
 
@@ -32,4 +32,18 @@ class Record extends Model
         $this->fill($fields);
         $this->save();
     }
+
+
+//    public static function add($fields,$id)
+//    {
+//
+//        $record = new static;
+//        $record->fill($fields);
+//        $record->save();
+//        return $record;
+//    }
+
+
+
+
 }

@@ -29,9 +29,7 @@ class RecordController extends Controller
      */
     public function record(Request $request)
     {
-      //  $doctors=Doctor::all();
         $user = $request->user();
-     //   $records=Record::all()->where('user_id',$user->id);
 
           $doc = Doctor::get(['id','sur_name','name', 'last_name'])->toArray();
            $doctors = array_map(function($vrach) {
@@ -55,6 +53,10 @@ class RecordController extends Controller
         $user = User::find($id);
 
         $dateTime=$request->get('dateTime');
+
+    //    dd($request);
+
+
         $id_doctor =  ($request->get('doctor_id')) +1;
 
         $doctor=Doctor::find($id_doctor);
